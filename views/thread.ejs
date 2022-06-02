@@ -1,0 +1,34 @@
+<html lang="en">
+
+<%- include("partials/head"); %>
+
+
+<body>
+
+  <%- include("partials/top-nav-board"); %>
+
+  <a href="#" id="newPost">post a new reply to this thread</a>
+  <%- include("partials/new-post-modal") %>
+
+  <%- include("partials/post-thread-head", {"post": posts[0], "threadUrl":`/thread?threadId=${posts[0].postId}` }) %>
+
+  <% posts.slice(1).forEach( post=> { %>
+  <%- include('partials/post-reply', {"post": post}) %>
+  <% }); %>
+
+
+
+
+</body>
+
+<script>
+  if ("<%=postId%>")
+    document.getElementById(`post<%=postId%>`).scrollIntoView();
+
+  function replyTo(id) {
+    let textBox = document.querySelector("#postReplyText");
+    textBox.value = `>>>${id}\n${textBox.value}`;
+  }
+</script>
+
+</html>

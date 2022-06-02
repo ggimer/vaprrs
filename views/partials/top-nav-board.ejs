@@ -1,0 +1,20 @@
+	<div id="header">
+		<img id="logo" src="img/14clover.png">
+      <div id="titleBoards">
+        <h1>vaprrs</h1>
+        <div id="boardsLinks" class="nav">
+          <strong>Boards: 
+          <a href="/"> General </a>
+          </strong>
+        </div>
+        <div class="postLoginSignUp">
+            <a href="#" id="newThread">Post a new thread</a>
+            <a href="/login"> Login </a> 
+            <a href="/signup"> Sign Up! </a>
+        </div>
+      </div>
+      <% if (user.username != null) {%>
+        Logged in as: <%= user.username %>
+      <% } %>
+
+    </div>

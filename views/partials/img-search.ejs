@@ -1,0 +1,49 @@
+<a href="#" onclick="showImageSearch()" id="suggestImg"> Search Images</a>
+<div id="searchImages" display="none">
+    <div class="imgSearch">
+        <input id="imgQuery"></input>
+        <a href="#" id="imgSearchButton" onclick="searchImage()">search</a>
+        <div id="imgResult"> </div>
+    </div>
+</div>
+
+<script>
+    document.getElementById('searchImages').style.display = "none";
+    function showImageSearch() {
+        document.getElementById('searchImages').style.display = "block";
+    }
+
+    async function searchImage() {
+        let q = document.querySelector("#imgQuery").value;
+
+        // let url = `https://pixabay.com/api/?key=5589438-47a0bca778bf23fc2e8c5bf3e&q=`;
+        let url = `https://pixabay.com/api/?key=23607415-81194b07ffd96f2d06112988d&q=${q}`;
+        let response = await fetch(url);
+        let data = await response.json();
+        data = data.hits;
+        // console.log(data);
+        let images = [];
+        let usedIndexes = [];
+        let webformatURLImages = [];
+        for (i = 0; i < Math.min(data.length, 4); i++) {
+            let index = 0;
+            do {
+                index = Math.floor(Math.random() * (data.length));
+            } while (usedIndexes.includes(index));
+            usedIndexes.push(index);
+            images.push(data[index].previewURL);
+            webformatURLImages.push(data[index].webformatURL);
+        }
+        // console.log(webformatURLImages);
+        let html = ``;
+        for (i = 0; i < images.length; i++) {
+            html += ` <a href="#" onclick='putImageUrlInBox("${webformatURLImages[i]}")' > <image class="imgResultThumbnail" src="${images[i]}" > </a>  `;
+        };
+        document.querySelector("#imgResult").innerHTML = html;
+    }
+
+    function putImageUrlInBox(url){
+      document.querySelector("#imgUrl").value = url;
+      // console.log("clicked image");
+    }
+</script>

@@ -1,0 +1,32 @@
+<div id="newPostModal" class="modal" tabindex="-1">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">New Reply</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div id="newPostModalBody">
+            <div class="newPostForm">
+              
+              
+              
+              <form action="/post/new" method="POST" onsubmit="disableButton();return true;">
+                <input type="hidden" value="<%= posts[0].boardId %>" name="boardId">
+                <input type="hidden" value="<%= user.userId %>" name="userId">
+                <input type="hidden" value="<%= posts[0].postId %>" name="threadId">
+                <input type="hidden" value="<%= posts[0].color %>" name="color">
+                Image URL: <input type="text" id="imgUrl" name="imgUrl"> 
+                <%- include("../partials/img-search"); %>
+                <br>
+                Post Text: <textarea id="postReplyText" name="text" rows="6" cols="60"></textarea>
+
+                <button id="postButton">Post</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="/js/newPostModal.js"></script>

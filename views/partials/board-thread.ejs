@@ -1,0 +1,20 @@
+<div class="post boardThread">
+  <% let threadUrl = `/thread?threadId=${container.thread.postId}`; %>
+
+  <%- include("../partials/post-thread-head", {"post": container.thread, "threadUrl":threadUrl}) %>
+
+  <div class="boardFiller threadLink">
+    <% let omittedPostCount = Math.max(0, container.postCount - 3) %>
+    ... <%= omittedPostCount %> replies omitted ... click
+
+    <a href=<%= threadUrl %>>here </a>
+    to see all posts
+  </div>
+
+  <div class="boardReplies">
+    <% container.posts.forEach( post =>{ %>
+    <%- include('../partials/post-reply', {"post":post}) %>
+    <%    });%>
+  </div>
+
+</div>

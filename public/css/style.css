@@ -1,0 +1,226 @@
+/* begin posts styles */
+.boardReplies {
+  padding-left : 15px;
+  padding-right: 15px;
+}
+
+.boardFiller {
+  background-color       : rgb(228, 228, 228);
+  text-align             : center;
+  border                 : solid 0px;
+  border-color           : rgb(228, 228, 228);
+  border-radius          : 5px;
+  width                  : 100%;
+  border-top-left-radius : 0px;
+  border-top-right-radius: 0px;
+}
+
+.boardThread {
+  background-color: rgb(207, 207, 207);
+  border          : solid 2px;
+  border-color    : rgb(207, 207, 207);
+  border-radius   : 5px;
+}
+
+.postHeader {
+  background-color          : rgb(223, 223, 223);
+  border                    : solid 0px;
+  border-color              : rgb(223, 223, 223);
+  border-radius             : 5px;
+  border-bottom-left-radius : 0px;
+  border-bottom-right-radius: 0px;
+  padding-left              : 15px;
+  padding-right             : 15px;
+}
+
+.postContent {
+  background-color: rgb(235, 235, 235);
+  padding-left    : 15px;
+  padding-right   : 15px;
+  padding-top     : 15px;
+  padding-bottom  : 15px;
+
+}
+
+.post {
+  /* background-color   : rgb(207, 207, 207); */
+  display       : flex;
+  flex-direction: column;
+  text-align    : left;
+}
+
+.postHeaderBGRed {
+  background-color: rgb(223, 203, 203);
+  border-color    : rgb(223, 203, 203);
+}
+
+.postContentBGRed {
+  background-color: rgb(235, 225, 225);
+}
+
+.postHeaderBGBlue {
+  background-color: rgb(203, 203, 223);
+  border-color    : rgb(223, 203, 203);
+}
+
+.postContentBGBlue {
+  background-color: rgb(225, 225, 235);
+}
+
+.postHeaderBGGreen {
+  background-color: rgb(203, 223, 203);
+  border-color    : rgb(223, 203, 203);
+}
+
+.postContentBGGreen {
+  background-color: rgb(225, 235, 225);
+}
+
+.postHeaderBGYellow {
+  background-color: rgb(223, 223, 203);
+  border-color    : rgb(223, 203, 203);
+}
+
+.postContentBGYellow {
+  background-color: rgb(235, 235, 225);
+}
+
+.postHeaderBGGray {
+  background-color: rgb(223, 223, 223);
+  border-color    : rgb(223, 203, 203);
+}
+
+.postContentBGGray {
+  background-color: rgb(235, 235, 235);
+}
+
+
+
+
+.threadHead {
+  /* padding-top               : 5px;
+  background-color          : rgb(216, 216, 216);
+  border                    : solid 10px;
+  border-color              : rgb(216, 216, 216);
+  border-radius             : 40px;
+  border-bottom-left-radius : 0px;
+  border-bottom-right-radius: 0px;
+  padding-left              : 15px;
+  padding-right             : 15px; */
+}
+
+.postTitle {
+  margin-left: 20px;
+  font-weight: bold;
+}
+
+.postUserName {
+  margin-left: 20px;
+  color      : rgb(104, 71, 0);
+}
+
+.postTime {
+  text-justify: right;
+  margin-left : 20px;
+}
+
+.postText {}
+
+.postImage {
+  max-width    : 100px;
+  max-height   : 100px;
+  border       : solid lightgray 2px;
+  border-radius: 15px;
+}
+
+.postReplyLink {
+  color: palevioletred;
+}
+
+
+
+/* end of posts styles */
+
+.pageTitle {}
+
+body {
+  background-color: rgb(233, 233, 233);
+  margin          : auto;
+  width           : 70%;
+}
+
+a {
+  text-decoration: none;
+  color          : black;
+}
+
+#loginHeader {
+  text-align: center;
+}
+
+#loginBody {
+  background-color: beige;
+  text-align      : center;
+  font-family     : 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+#signUpHeader {
+  text-align: center;
+  border    : 25px;
+}
+
+#signUp {
+  background-color: beige;
+  text-align      : center;
+  font-family     : 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+h1 {
+  text-align: center;
+}
+
+h2 {
+  text-align: center;
+}
+
+.nav {
+  padding-left   : 20px;
+  align-content  : center;
+  justify-content: space-evenly;
+}
+
+#boardsLinks {
+    display: flex;
+    flex-direction: row;
+}
+
+#titleBoards {
+    justify-content: space-evenly;
+    width: 100%;
+}
+.postLoginSignUp {
+    justify-content: space-evenly;
+    display: flex;
+}
+
+#header {
+  display       : flex;
+  flex-direction: row;
+}
+
+.greentext {
+  color: green;
+}
+
+#logo {
+  width: 100px;
+}
+
+#logo1 {
+  width           : 100px;
+  background-color: beige;
+}
+
+.imgResultThumbnail {
+  width: 20%;
+}

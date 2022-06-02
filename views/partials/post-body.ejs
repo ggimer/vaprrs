@@ -1,0 +1,80 @@
+<% 
+  let colorClasses=['BGGray', 'BGRed' , 'BGBlue' , 'BGGreen' , 'BGYellow' ]; let colorClass=colorClasses[post.color];
+  let date=post.dateTime; let postText=post.text; let regex=/(>>>[0-9]+)/;
+  let postSplit = postText.split(regex);
+  //let postSplit = postText.split(" ");
+
+
+  let postParts = [];
+  postSplit.forEach(e=> {
+  if ( e == "" ){}
+  else if ( e.match(regex) ){
+  let postNum = e.replace(">>>","");
+  let postPart = `<a class="postReplyLink"
+    href="/thread?threadId=${post.threadId}&postId=${postNum}">>>>${postNum}&nbsp</a>`;
+  postParts.push(postPart);
+  }
+  else{
+  postParts.push(e);
+  }
+
+
+  });
+
+  postText = "";
+  for ( i = 0; i < postParts.length; i++ ){ postText=`${postText}${postParts[i]}`; }
+    postText=postText.replace(/\n/g,"<br>");
+    postText = postText.replace(/\t/g,"&nbsp&nbsp&nbsp&nbsp");
+
+    //console.log(postText);
+    let youtubeRegex = /(?:\S*)(?:(?:youtube\.com)(?:\S*\/watch\?v=)|(?:youtu\.be\/))(\S+)/g;
+    postText = postText.replace(youtubeRegex,
+      `<iframe class="youtube" width="100%" height="400px" src="https://www.youtube.com/embed/$1"
+        title="YouTube video player" frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen></iframe>`
+  );
+
+%>
+
+
+
+
+<div class="postHeader postHeader<%=colorClass%>" id="post<%= post.postId %>">
+  <h5>
+    <a class="postId" onclick="replyTo(<%=post.postId%>)">
+      <%= post.postId %>
+    </a>
+    <span class="postTitle">
+      <%= post.topic %>
+    </span>
+    <% if (post.name !="" ) { %>
+    <span class="postName">
+      <%= post.name %>
+    </span>
+    <% } %>
+    <span class="postUserName">
+      <%= post.username %>
+    </span>
+    <span class="postTime">
+      <%= post.dateTime %>
+    </span>
+  </h5>
+
+  <% if (user.isAdmin=="true" ) { %>
+  <div>
+    <a href="/remove?postId=<%= post.postId %>">REMOVE</a>
+    <a href="/edit?postId=<%= post.postId %>">EDIT</a>
+  </div>
+  <% } %>
+
+</div>
+
+<div class="postContent postContent<%=colorClass%>">
+  <% if (post.imgUrl !="" ) { %>
+  <a href="<%= post.imgUrl %>"><img class="postImage" src="<%= post.imgUrl %>"></a>
+  <% } %>
+  <span class="postText">
+    <%- postText %>
+  </span>
+</div>

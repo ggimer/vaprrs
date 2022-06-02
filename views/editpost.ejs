@@ -1,0 +1,18 @@
+<html lang="en">
+
+<%- include("partials/head"); %>
+
+<body>
+  <form action="/post/edit" method="POST">
+    <input type="hidden" name="postId" value="<%= post.postId %>">
+    Thread Topic: <input type="text" name="topic" value="<%= post.topic%>"><br>
+    Thread Name: <input type="text" name="name" value="<%= post.name%>"><br>
+    Image URL: <input type="text" id="imgUrl" name="imgUrl" value="<%= post.imgUrl%>"> 
+    <%- include("partials/img-search") %><br>
+    Post Text: <textarea name="text" rows="6" cols="60"><%= post.text%></textarea>
+
+    <button>edit</button>
+  </form> 
+</body>
+
+</html>

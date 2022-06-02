@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Sign Up Screen</title>
+
+  <link href="css/style.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body id="signUp">
+  <h1 id="signUpHeader"> Sign Up for vaprrs!</h1><br>
+
+  <img id="logo1" src="img/14clover.png"><br><br>
+
+  <form method="POST" action="/signup">
+    Username:
+    <input type="text" name="username">
+    <br>
+    Password:
+    <input type="password" name="pwd"><br>
+    Suggested Password:
+     <span id="suggestedPassword"><%= suggestedPassword %> </span>
+    <br>
+    <button> Sign Up! </button>
+  </form>
+  
+  <% if (typeof error != "undefined" ) { %> 
+    <%= error %>
+  <% } %>
+
+</body>
+</html>

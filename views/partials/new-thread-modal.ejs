@@ -1,0 +1,47 @@
+<div id="newThreadModal" class="modal" tabindex="-1">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">New Thread</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div id="newThreadModalBody">
+            <div class="newThreadForm">
+
+
+              <form action="/post/new" method="POST" onsubmit="disableButton();return true;">
+                Board: <select name="boardId">
+                    <% boards.forEach( board => { %>
+                      <option value="<%= board.boardId %>"> <%= board.name %> </option>
+                    <% }); %>
+                  </select> <br>
+                <input type="hidden" value="<%= user.userId %>" name="userId">
+                <input type="hidden" value="0" name="threadId"> 
+                Thread Topic: <input type="text" name="topic"> <br>
+                Thread Name: <input type="text" name="name"><br>
+                Image URL: <input type="text" name="imgUrl" id="imgUrl"> 
+                Color: 
+                <select name="color">
+                  <option value="0">Default</option>
+                  <option value="1">Red</option>
+                  <option value="2">Blue</option>
+                  <option value="3">Green</option>
+                  <option value="4">Yellow</option>
+                </select>
+                
+                <%- include('../partials/img-search') %>
+
+                <br>
+                Post Text: <textarea id="postThreadText"name="text" rows="6" cols="60"></textarea>
+
+                <button id="postButton">Post</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="/js/newThreadModal.js"></script>
+
